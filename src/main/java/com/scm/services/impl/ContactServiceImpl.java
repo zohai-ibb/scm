@@ -36,6 +36,7 @@ public class ContactServiceImpl implements ContactService
         var contactOld = contactRepo.findById(contact.getId())
                 .orElseThrow(() -> new ResourceNotFoundException("Contact not found"));
         contactOld.setName(contact.getName());
+        contactOld.setGithubLink(contact.getGithubLink());
         contactOld.setEmail(contact.getEmail());
         contactOld.setPhoneNumber(contact.getPhoneNumber());
         contactOld.setAddress(contact.getAddress());

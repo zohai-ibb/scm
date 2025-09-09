@@ -34,6 +34,7 @@ public class Contact {
     private String description;
     private boolean favorite = false;
     private String websiteLink;
+    private String githubLink;
     private String linkedInLink;
     // private List<String> socialLinks=new ArrayList<>();
     private String cloudinaryImagePublicId;

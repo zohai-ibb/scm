@@ -96,6 +96,7 @@ public class ContactController {
         contact.setAddress(contactForm.getAddress());
         contact.setDescription(contactForm.getDescription());
         contact.setUser(user);
+        contact.setGithubLink(contactForm.getGithubLink());
         contact.setLinkedInLink(contactForm.getLinkedInLink());
         contact.setWebsiteLink(contactForm.getWebsiteLink());
         contact.setPicture(fileURL);
@@ -218,7 +219,6 @@ public class ContactController {
         contactForm.setWebsiteLink(contact.getWebsiteLink());
         contactForm.setLinkedInLink(contact.getLinkedInLink());
         contactForm.setPicture(contact.getPicture());
-        ;
         model.addAttribute("contactForm", contactForm);
         model.addAttribute("contactId", contactId);
 

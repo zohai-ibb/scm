@@ -40,6 +40,8 @@ public class ContactForm {
 
     private String websiteLink;
 
+    private String githubLink;
+
     private String linkedInLink;
 
     // annotation create karenge jo file validate
