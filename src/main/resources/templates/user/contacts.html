@@ -109,18 +109,26 @@
                       class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
                     >
                       <img
-                        onerror="this.src='https://static-00.iconduck.com/assets.00/profile-default-icon-2048x2045-u3j7s5nj.png'"
+                        onerror="this.src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'"
                         class="w-10 h-10 rounded-full"
                         data-th-src="@{*{picture}}"
                         src="/docs/images/people/profile-picture-1.jpg"
                         alt="Jese image"
                       />
                       <div class="ps-3">
-                        <div
-                          class="text-base font-semibold"
-                          data-th-text="*{name}"
-                        >
-                          Neil Sims
+                        <div class="flex items-center gap-1">
+                          <div
+                            class="text-base font-semibold"
+                            data-th-text="*{name}"
+                          >
+                            Neil Sims
+                          </div>
+                          <!-- <div data-th-text="*{favorite}">   -->
+                          <!-- <div
+                            id="favoriteDiv"
+                            th:attr="data-favorite=*{favorite}"
+                          ></div> -->
+                          <div th:attr="data-favorite=*{favorite}"></div>
                         </div>
                         <div
                           class="font-normal text-gray-500"
@@ -136,7 +144,6 @@
                     </td>
                     <td class="px-6 py-4">
                       <div class="flex gap-3">
-
                         <a data-th-href="@{*{websiteLink}}" target="_blank"
                           ><i class="fa-solid fa-link"></i
                         ></a>
@@ -144,7 +151,6 @@
                         <a data-th-href="@{*{githubLink}}" target="_blank"
                           ><i class="fa-brands fa-github"></i
                         ></a>
-
 
                         <a data-th-href="@{*{linkedInLink}}" target="_blank">
                           <i class="fa-brands fa-linkedin"></i>

@@ -216,6 +216,7 @@ public class ContactController {
         contactForm.setAddress(contact.getAddress());
         contactForm.setDescription(contact.getDescription());
         contactForm.setFavorite(contact.isFavorite());
+        contactForm.setGithubLink(contact.getGithubLink());
         contactForm.setWebsiteLink(contact.getWebsiteLink());
         contactForm.setLinkedInLink(contact.getLinkedInLink());
         contactForm.setPicture(contact.getPicture());
@@ -246,7 +247,7 @@ public class ContactController {
         con.setFavorite(contactForm.isFavorite());
         con.setWebsiteLink(contactForm.getWebsiteLink());
         con.setLinkedInLink(contactForm.getLinkedInLink());
-
+        con.setGithubLink(contactForm.getGithubLink());
         // process image:
 
         if (contactForm.getContactImage() != null && !contactForm.getContactImage().isEmpty()) {
