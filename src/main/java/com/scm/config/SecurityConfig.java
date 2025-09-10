@@ -1,5 +1,6 @@
 package com.scm.config;
 
+import org.apache.http.client.AuthenticationHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,6 +11,7 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+
 import com.scm.services.impl.SecurityCustomUserDetailService;
 
 @Configuration
@@ -45,6 +47,9 @@ public class SecurityConfig {
 
     @Autowired
     private OAuthAuthenicationSuccessHandler handler;
+
+    @Autowired
+    private AuthenticationFailure authenticationFailure;
 
     // configuraiton of authentication providerfor spring security
     @Bean
@@ -111,7 +116,11 @@ public class SecurityConfig {
 
             // });
 
+            formLogin.failureHandler(authenticationFailure); 
+
         });
+
+
 
         httpSecurity.csrf(AbstractHttpConfigurer::disable);
         // oauth configurations
