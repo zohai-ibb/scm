@@ -84,10 +84,6 @@ public class ContactController {
 
         // uplod karne ka code
 
-        String filename = UUID.randomUUID().toString();
-
-        String fileURL = imageService.uploadImage(contactForm.getContactImage(), filename);
-
         Contact contact = new Contact();
         contact.setName(contactForm.getName());
         contact.setFavorite(contactForm.isFavorite());
@@ -99,8 +95,17 @@ public class ContactController {
         contact.setGithubLink(contactForm.getGithubLink());
         contact.setLinkedInLink(contactForm.getLinkedInLink());
         contact.setWebsiteLink(contactForm.getWebsiteLink());
-        contact.setPicture(fileURL);
-        contact.setCloudinaryImagePublicId(filename);
+
+        if (contactForm.getContactImage() != null && !contactForm.getContactImage().isEmpty()) {
+
+            String filename = UUID.randomUUID().toString();
+            String fileURL = imageService.uploadImage(contactForm.getContactImage(), filename);
+
+            contact.setPicture(fileURL);
+            contact.setCloudinaryImagePublicId(filename);
+
+        }
+
         contactService.save(contact);
         System.out.println(contactForm);
 
