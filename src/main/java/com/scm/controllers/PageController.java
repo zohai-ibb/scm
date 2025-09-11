@@ -123,7 +123,7 @@ public class PageController {
         user.setEnabled(false);
         user.setPhoneNumber(userForm.getPhoneNumber());
         user.setProfilePic(
-                "https://www.learncodewithdurgesh.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdurgesh_sir.35c6cb78.webp&w=1920&q=75");
+                "https://static.vecteezy.com/system/resources/previews/020/765/399/large_2x/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg");
 
         User savedUser = userService.saveUser(user);
 
@@ -133,7 +133,8 @@ public class PageController {
 
         // add the message:
 
-        Message message = Message.builder().content("Registration Successful").type(MessageType.green).build();
+        Message message = Message.builder().content("Verification Link sent to your Email").type(MessageType.green)
+                .build();
 
         session.setAttribute("message", message);
 
