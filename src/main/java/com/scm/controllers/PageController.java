@@ -1,6 +1,7 @@
 package com.scm.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,6 +25,9 @@ public class PageController {
 
     @Autowired
     private UserService userService;
+
+    @Value("${web3forms.access_key}")
+    private String web3formsAccessKey;
 
     @GetMapping("/")
     public String index() {
@@ -60,8 +64,9 @@ public class PageController {
     // contact page
 
     @GetMapping("/contact")
-    public String contact() {
-        return new String("contact");
+    public String contactPage(Model model) {
+        model.addAttribute("web3formsAccessKey", web3formsAccessKey);
+        return "contact"; // your contact.html
     }
 
     // this is showing login page

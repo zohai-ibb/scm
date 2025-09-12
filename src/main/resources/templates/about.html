@@ -4,21 +4,91 @@
   th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
 >
   <head>
-    <title>About Page</title>
+    <title>Smart Contact Manager | About</title>
   </head>
   <body>
-    <div id="content">
-      <h1>Welcome to about page</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur,
-        ratione!
-      </p>
+    <div id="content" class="bg-white dark:bg-gray-900 min-h-screen px-6 py-12">
+      <div class="max-w-4xl mx-auto text-center">
+        <!-- Heading -->
+        <h1 class="text-4xl font-bold text-gray-800 dark:text-white">About Me</h1>
+
+        <!-- Intro -->
+        <p class="mt-3 text-gray-600 dark:text-gray-300">
+          Hi, I’m <span class="font-semibold">Johaib Ansari</span>, a passionate
+          developer who enjoys building smart and user-friendly applications. I
+          created the Smart Contact Manager to make organizing and managing
+          contacts simple, secure, and accessible for everyone.
+        </p>
+
+        <p class="mt-6 text-gray-600 dark:text-gray-300">
+          With experience in
+          <span class="font-medium">
+            Spring Boot, Thymeleaf, Tailwind CSS, and modern web development
+          </span>,
+          I love solving real-world problems with clean and scalable code. My
+          goal is to combine technology and creativity to deliver meaningful
+          solutions.
+        </p>
+
+
+        <!-- Tech Stack Section -->
+        <div class="mt-10">
+          <h2 class="text-3xl font-bold text-gray-800 dark:text-white">
+            🛠 My Tech Stack
+          </h2>
+          <p class="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            These are the core tools and technologies I use to build reliable,
+            secure, and scalable applications.
+          </p>
+
+          <div
+            class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-10 text-gray-700 dark:text-gray-300"
+          >
+            <div class="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg shadow">
+              <h3 class="font-semibold text-lg text-gray-800 dark:text-white">
+                💻 Backend
+              </h3>
+              <p class="mt-2">Java, Spring Boot, Hibernate</p>
+            </div>
+
+            <div class="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg shadow">
+              <h3 class="font-semibold text-lg text-gray-800 dark:text-white">
+                🎨 Frontend
+              </h3>
+              <p class="mt-2">HTML, CSS, Tailwind CSS, Thymeleaf</p>
+            </div>
+
+            <div class="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg shadow">
+              <h3 class="font-semibold text-lg text-gray-800 dark:text-white">
+                🗄 Databases
+              </h3>
+              <p class="mt-2">MySQL, PostgreSQL</p>
+            </div>
+
+            <div class="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg shadow">
+              <h3 class="font-semibold text-lg text-gray-800 dark:text-white">
+                🚀 Tools
+              </h3>
+              <p class="mt-2">Git, GitHub, VS Code, IntelliJ IDEA</p>
+            </div>
+
+            <div class="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg shadow">
+              <h3 class="font-semibold text-lg text-gray-800 dark:text-white">
+                🌐 APIs & Security
+              </h3>
+              <p class="mt-2">REST APIs, Spring Security, JWT</p>
+            </div>
+
+            <div class="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg shadow">
+              <h3 class="font-semibold text-lg text-gray-800 dark:text-white">
+                ⚙️ Others
+              </h3>
+              <p class="mt-2">Maven, Docker (basic), Responsive Design</p>
+            </div>
+          </div>
+        </div>
+        <!-- End Tech Stack -->
+      </div>
     </div>
-    <script>
-      console.log("about page");
-    </script>
-    <script>
-      console.log("second about page script");
-    </script>
   </body>
 </html>

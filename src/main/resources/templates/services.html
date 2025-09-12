@@ -1,17 +1,99 @@
 <!DOCTYPE html>
 <html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{})}">
   <head>
-  
-    <title>
-      Services
-    </title>
+    <title>Services</title>
   </head>
   <body>
-    <section id="content">
-      <h1>Welcome to services page</h1>
-      <h2>Services offered by SCM</h2>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas dolore assumenda rerum harum mollitia incidunt nesciunt dignissimos esse dicta reprehenderit quam, quisquam aspernatur enim consequatur accusamus, minima alias odit ducimus.<10></10>
-    </section>
+    <section
+      id="content"
+      class="bg-white dark:bg-gray-900 min-h-screen px-6 py-12"
+    >
+      <div class="max-w-5xl mx-auto text-center">
+        <h1 class="text-4xl font-bold text-gray-800 dark:text-white">
+          Our Services
+        </h1>
+        <p class="mt-4 text-gray-600 dark:text-gray-300">
+          At Smart Contact Manager, we provide powerful and easy-to-use tools to
+          keep your contacts organized and secure.
+        </p>
+      </div>
 
+      <br>
+
+      <!-- Services Grid -->
+      <div class="grid md:grid-cols-3 gap-8 mt-12">
+        <div
+          class="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition"
+        >
+          <h3 class="text-xl font-semibold text-gray-800 dark:text-white">
+            Contact Management
+          </h3>
+          <p class="mt-2 text-gray-600 dark:text-gray-300">
+            Save, organize, and categorize your contacts effortlessly with an
+            intuitive dashboard.
+          </p>
+        </div>
+
+        <div
+          class="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition"
+        >
+          <h3 class="text-xl font-semibold text-gray-800 dark:text-white">
+            Search & Filter
+          </h3>
+          <p class="mt-2 text-gray-600 dark:text-gray-300">
+            Quickly find the contact you need with powerful search and filtering
+            options.
+          </p>
+        </div>
+
+        <div
+          class="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition"
+        >
+          <h3 class="text-xl font-semibold text-gray-800 dark:text-white">
+            Secure Login
+          </h3>
+          <p class="mt-2 text-gray-600 dark:text-gray-300">
+            Robust authentication and authorization to keep your data safe from
+            unauthorized access.
+          </p>
+        </div>
+
+        <div
+          class="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition"
+        >
+          <h3 class="text-xl font-semibold text-gray-800 dark:text-white">
+            Cloud Storage
+          </h3>
+          <p class="mt-2 text-gray-600 dark:text-gray-300">
+            Access your contacts anytime, anywhere with secure cloud storage
+            integration.
+          </p>
+        </div>
+
+        <div
+          class="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition"
+        >
+          <h3 class="text-xl font-semibold text-gray-800 dark:text-white">
+            User Feedback
+          </h3>
+          <p class="mt-2 text-gray-600 dark:text-gray-300">
+            Collect feedback and ratings to improve and get smart
+            recommendations.
+          </p>
+        </div>
+
+        <div
+          class="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition"
+        >
+          <h3 class="text-xl font-semibold text-gray-800 dark:text-white">
+            Responsive Design
+          </h3>
+          <p class="mt-2 text-gray-600 dark:text-gray-300">
+            Fully responsive UI that works seamlessly on desktops, tablets, and
+            mobiles.
+          </p>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
