@@ -71,3 +71,5 @@ const toggler = document.getElementById("navbar-toggler");
     btn1.classList.toggle("hidden");
     btn2.classList.toggle("hidden");
   });
+
+  
