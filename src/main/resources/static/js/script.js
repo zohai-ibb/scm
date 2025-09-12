@@ -61,3 +61,13 @@ function changePageTheme(theme, oldTheme) {
 }
 
 //change page change theme
+const toggler = document.getElementById("navbar-toggler");
+
+  const btn1 = document.getElementById("menu-links");
+  const btn2 = document.getElementById("menu-buttons");
+
+  toggler.addEventListener("click", function () {
+    console.log("toggler clicked");
+    btn1.classList.toggle("hidden");
+    btn2.classList.toggle("hidden");
+  });
