@@ -2,6 +2,8 @@ package com.scm.controllers;
 
 import java.util.List;
 
+import javax.imageio.ImageIO;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import javax.imageio.ImageIO;
+
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperPrintManager;
+
 import com.scm.entities.Contact;
 import com.scm.entities.User;
 import com.scm.helpers.Helper;
@@ -23,6 +34,7 @@ import com.scm.services.UserService;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
@@ -97,11 +109,25 @@ public class ContactCardController {
 
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, dataSource);
 
-            byte[] pdfBytes = JasperExportManager.exportReportToPdf(jasperPrint);
+            // Export to image
+            Image awtImage = JasperPrintManager.printPageToImage(jasperPrint, 0, 2.0f);
+
+            BufferedImage bufferedImage = new BufferedImage(
+                    awtImage.getWidth(null),
+                    awtImage.getHeight(null),
+                    BufferedImage.TYPE_INT_ARGB);
+
+            Graphics2D g2d = bufferedImage.createGraphics();
+            g2d.drawImage(awtImage, 0, 0, null);
+            g2d.dispose();
+
+            // Now write to ByteArrayOutputStream
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ImageIO.write(bufferedImage, "png", baos);
 
             return ResponseEntity.ok()
-                    .contentType(MediaType.APPLICATION_PDF)
-                    .body(pdfBytes);
+                    .contentType(MediaType.IMAGE_PNG)
+                    .body(baos.toByteArray());
 
         } catch (Exception e) {
             logger.error("Error generating single contact card", e);
