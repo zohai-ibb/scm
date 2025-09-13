@@ -1,0 +1,130 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3 -->
+<jasperReport name="ContactCard" language="java" columnCount="1"
+              pageWidth="400" pageHeight="300" orientation="Landscape"
+              columnWidth="380" leftMargin="10" rightMargin="10"
+              topMargin="10" bottomMargin="10">
+              
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+    <property name="com.jaspersoft.studio.unit." value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+
+    <field name="email" class="java.lang.String"/>
+    <field name="phoneNumber" class="java.lang.String"/>
+    <field name="address" class="java.lang.String"/>
+    <field name="description" class="java.lang.String"/>
+    <field name="websiteLink" class="java.lang.String"/>
+    <field name="githubLink" class="java.lang.String"/>
+    <field name="linkedInLink" class="java.lang.String"/>
+    <field name="picture" class="java.lang.String"/>
+    <field name="name" class="java.lang.String"/>
+
+    <!-- FIXED TITLE -->
+    <title>
+        <band height="58">
+            <staticText>
+                <reportElement x="50" y="0" width="273" height="48"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="30" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ZACHManage]]></text>
+            </staticText>
+        </band>
+    </title>
+
+    <!-- DETAIL SECTION -->
+    <detail>
+        <band height="200">
+            <image>
+                <reportElement x="0" y="10" width="80" height="80"/>
+                <imageExpression><![CDATA[$F{picture}]]></imageExpression>
+            </image>
+
+            <staticText>
+                <reportElement x="100" y="20" width="80" height="20"/>
+                <textElement><font isBold="true"/></textElement>
+                <text><![CDATA[Name]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="190" y="20" width="179" height="20"/>
+                <textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+            </textField>
+
+            <staticText>
+                <reportElement x="100" y="40" width="80" height="20"/>
+                <textElement><font isBold="true"/></textElement>
+                <text><![CDATA[Email:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="190" y="40" width="180" height="20"/>
+                <textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+            </textField>
+
+            <staticText>
+                <reportElement x="100" y="60" width="80" height="20"/>
+                <textElement><font isBold="true"/></textElement>
+                <text><![CDATA[Phone:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="190" y="60" width="180" height="20"/>
+                <textFieldExpression><![CDATA[$F{phoneNumber}]]></textFieldExpression>
+            </textField>
+
+            <staticText>
+                <reportElement x="0" y="100" width="80" height="20"/>
+                <textElement><font isBold="true"/></textElement>
+                <text><![CDATA[Address:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="90" y="100" width="279" height="20"/>
+                <textFieldExpression><![CDATA[$F{address}]]></textFieldExpression>
+            </textField>
+
+            <staticText>
+                <reportElement x="0" y="120" width="80" height="20"/>
+                <textElement><font isBold="true"/></textElement>
+                <text><![CDATA[Website:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="90" y="120" width="280" height="20"/>
+                <textFieldExpression><![CDATA[$F{websiteLink}]]></textFieldExpression>
+            </textField>
+
+            <staticText>
+                <reportElement x="0" y="140" width="80" height="20"/>
+                <textElement><font isBold="true"/></textElement>
+                <text><![CDATA[GitHub:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="90" y="140" width="280" height="20"/>
+                <textFieldExpression><![CDATA[$F{githubLink}]]></textFieldExpression>
+            </textField>
+
+            <staticText>
+                <reportElement x="0" y="160" width="80" height="20"/>
+                <textElement><font isBold="true"/></textElement>
+                <text><![CDATA[LinkedIn:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="90" y="160" width="280" height="20"/>
+                <textFieldExpression><![CDATA[$F{linkedInLink}]]></textFieldExpression>
+            </textField>
+
+            <staticText>
+                <reportElement x="0" y="180" width="80" height="20"/>
+                <textElement><font isBold="true"/></textElement>
+                <text><![CDATA[About:]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true">
+                <reportElement x="90" y="180" width="280" height="20"/>
+                <textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>
