@@ -7,108 +7,107 @@
     <title>Contact | Zach Manage</title>
   </head>
   <body>
-    <div
-      id="content"
-      class="bg-white dark:bg-gray-900 flex mt-10 justify-center"
-    >
-      <div
-        class="w-full max-w-2xl bg-gray-50 dark:bg-gray-800 shadow-lg rounded-lg p-8"
-      >
-        <!-- Title -->
-        <h1
-          class="text-3xl font-bold text-gray-800 dark:text-white text-center"
+    <div id="content">
+      <br/>
+      <div class="bg-white dark:bg-gray-900 flex mt-10 justify-center">
+        <div
+          class="w-full max-w-2xl bg-gray-50 dark:bg-gray-800 shadow-lg rounded-lg p-8"
         >
-          Contact Us
-        </h1>
-        <p class="mt-3 text-center text-gray-600 dark:text-gray-300">
-          Have questions or feedback? Fill out the form below and we’ll get back
-          to you.
-        </p>
+          <!-- Title -->
+          <h1
+            class="text-3xl font-bold text-gray-800 dark:text-white text-center"
+          >
+            Contact Us
+          </h1>
+          <p class="mt-3 text-center text-gray-600 dark:text-gray-300">
+            Have questions or feedback? Fill out the form below and we’ll get
+            back to you.
+          </p>
 
-        <!-- Contact Form -->
-        <form
-          id="contact-form"
-          action="https://api.web3forms.com/submit"
-          method="POST"
-          class="mt-8 space-y-6"
-        >
-          <!-- Access Key -->
-          <input
-            type="hidden"
-            name="access_key"
-            th:value="${web3formsAccessKey}"
-          />
-
-          <!-- Name -->
-          <div>
-            <label
-              for="name"
-              class="block text-sm font-medium text-gray-700 dark:text-gray-300"
-              >Name</label
-            >
+          <!-- Contact Form -->
+          <form
+            id="contact-form"
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            class="mt-8 space-y-6"
+          >
+            <!-- Access Key -->
             <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              type="hidden"
+              name="access_key"
+              th:value="${web3formsAccessKey}"
             />
-          </div>
 
-          <!-- Email -->
-          <div>
-            <label
-              for="email"
-              class="block text-sm font-medium text-gray-700 dark:text-gray-300"
-              >Email</label
-            >
+            <!-- Name -->
+            <div>
+              <label
+                for="name"
+                class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                >Name</label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              />
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              />
+            </div>
+
+            <!-- Message -->
+            <div>
+              <label
+                for="message"
+                class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                >Message</label
+              >
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                required
+                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              ></textarea>
+            </div>
+
+            <!-- Honeypot -->
             <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              type="checkbox"
+              name="botcheck"
+              class="hidden"
+              style="display: none"
             />
-          </div>
 
-          <!-- Message -->
-          <div>
-            <label
-              for="message"
-              class="block text-sm font-medium text-gray-700 dark:text-gray-300"
-              >Message</label
-            >
-            <textarea
-              id="message"
-              name="message"
-              rows="4"
-              required
-              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-            ></textarea>
-          </div>
-
-          <!-- Honeypot -->
-          <input
-            type="checkbox"
-            name="botcheck"
-            class="hidden"
-            style="display: none"
-          />
-
-          <!-- Submit Button -->
-          <div class="text-center">
-            <button
-              type="submit"
-              class="sm:w-auto px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-md transition"
-            >
-              Send Message
-            </button>
-          </div>
-        </form>
+            <!-- Submit Button -->
+            <div class="text-center">
+              <button
+                type="submit"
+                class="sm:w-auto px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-md transition"
+              >
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
 
     <script data-th-src="@{'/js/contactUs.js'}"></script>
-  
   </body>
 </html>

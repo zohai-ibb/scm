@@ -17,7 +17,9 @@
       />
       <span
         class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
-        >ZM</span
+        >
+        ZACHManage
+        </span
       >
     </a>
     <!-- end brand -->
@@ -57,30 +59,42 @@
         <li>
           <a
             data-th-href="@{'/home'}"
-            class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
-            >Home</a
+            th:class="${activePage == 'home'} ? 
+             'block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500' : 
+             'block py-2 px-3 md:p-0 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white'"
           >
+            Home
+          </a>
         </li>
         <li>
           <a
             data-th-href="@{'/services'}"
-            class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white"
-            >Services</a
+            th:class="${activePage == 'services'} ? 
+             'block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500' : 
+             'block py-2 px-3 md:p-0 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white'"
           >
+            Services
+          </a>
         </li>
         <li>
           <a
             data-th-href="@{'/about'}"
-            class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white"
-            >About</a
+            th:class="${activePage == 'about'} ? 
+             'block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500' : 
+             'block py-2 px-3 md:p-0 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white'"
           >
+            About
+          </a>
         </li>
         <li>
           <a
             data-th-href="@{'/contact'}"
-            class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white"
-            >Contact</a
+            th:class="${activePage == 'contact'} ? 
+             'block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500' : 
+             'block py-2 px-3 md:p-0 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white'"
           >
+            Contact
+          </a>
         </li>
       </ul>
     </div>

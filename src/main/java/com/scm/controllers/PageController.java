@@ -38,9 +38,11 @@ public class PageController {
     public String home(Model model) {
         System.out.println("Home page handler");
         // sending data to view
-        model.addAttribute("name", "Substring Technologies");
-        model.addAttribute("youtubeChannel", "Learn Code With Durgesh");
-        model.addAttribute("githubRepo", "https://github.com/learncodewithdurgesh/");
+        model.addAttribute("name", "Zach Greyrat");
+        model.addAttribute("youtubeChannel", "Not Created Yet");
+        model.addAttribute("githubRepo", "https://github.com/zohai-ibb/");
+        model.addAttribute("activePage", "home");
+
         return "home";
     }
 
@@ -49,6 +51,7 @@ public class PageController {
     @RequestMapping("/about")
     public String aboutPage(Model model) {
         model.addAttribute("isLogin", true);
+        model.addAttribute("activePage", "about");
         System.out.println("About page loading");
         return "about";
     }
@@ -56,8 +59,9 @@ public class PageController {
     // services
 
     @RequestMapping("/services")
-    public String servicesPage() {
+    public String servicesPage(Model model) {
         System.out.println("services page loading");
+        model.addAttribute("activePage", "services");
         return "services";
     }
 
@@ -66,6 +70,7 @@ public class PageController {
     @GetMapping("/contact")
     public String contactPage(Model model) {
         model.addAttribute("web3formsAccessKey", web3formsAccessKey);
+        model.addAttribute("activePage", "contact");
         return "contact"; // your contact.html
     }
 
