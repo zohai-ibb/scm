@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -70,6 +71,40 @@ public class ContactCardController {
 
         } catch (Exception e) {
             logger.error("Error generating contact card report", e);
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
+    @GetMapping("/{contactId}")
+    public ResponseEntity<byte[]> generateSingleContactCard(
+            @PathVariable String contactId,
+            Authentication authentication) {
+        try {
+            String username = Helper.getEmailOfLoggedInUser(authentication);
+            User user = userService.getUserByEmail(username);
+
+            Contact contact = contactService.getByIdAndUserId(contactId, user.getUserId());
+            if (contact == null) {
+                return ResponseEntity.notFound().build();
+            }
+
+            // Load jrxml
+            var inputStream = new ClassPathResource("reports/ContactCard.jrxml").getInputStream();
+
+            JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
+
+            JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(List.of(contact));
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, dataSource);
+
+            byte[] pdfBytes = JasperExportManager.exportReportToPdf(jasperPrint);
+
+            return ResponseEntity.ok()
+                    .contentType(MediaType.APPLICATION_PDF)
+                    .body(pdfBytes);
+
+        } catch (Exception e) {
+            logger.error("Error generating single contact card", e);
             return ResponseEntity.internalServerError().build();
         }
     }

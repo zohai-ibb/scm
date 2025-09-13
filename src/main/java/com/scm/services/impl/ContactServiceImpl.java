@@ -1,6 +1,8 @@
 package com.scm.services.impl;
 
 import java.util.*;
+
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -17,6 +19,7 @@ import com.scm.services.ContactService;
 public class ContactServiceImpl implements ContactService
 
 {
+    Logger logger = org.slf4j.LoggerFactory.getLogger(ContactServiceImpl.class);
 
     @Autowired
     private ContactRepo contactRepo;
@@ -109,6 +112,25 @@ public class ContactServiceImpl implements ContactService
         Sort sort = order.equals("desc") ? Sort.by(sortBy).descending() : Sort.by(sortBy).ascending();
         var pageable = PageRequest.of(page, size, sort);
         return contactRepo.findByUserAndPhoneNumberContaining(user, phoneNumberKeyword, pageable);
+    }
+
+    @Override
+    public Contact getByIdAndUserId(String contactId, String userId) {
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        logger.info("Looking for contactId={} and userId={}", contactId, userId);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        return contactRepo.findByIdAndUser_UserId(contactId, userId)
+                .orElse(null);
     }
 
 }

@@ -58,9 +58,13 @@ async function loadContactdata(id) {
     document.querySelector("#contact_githubLink").innerHTML = data.linkedInLink;
     const isFavorite = data.favorite;
     console.log(isFavorite)
-    if(isFavorite){
+    if (isFavorite) {
       document.querySelector("#contact_favorite").innerHTML = `<i class="fa-solid fa-star text-yellow-400"></i>`;
     }
+
+    // Set PDF export link dynamically
+    document.querySelector("#exportContactCardLink").href =
+      `${baseURL}/user/contacts/contact-cards/${id}`;
 
 
     openContactModal();
