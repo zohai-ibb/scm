@@ -110,24 +110,31 @@ public class ContactCardController {
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, dataSource);
 
             // Export to image
-            Image awtImage = JasperPrintManager.printPageToImage(jasperPrint, 0, 2.0f);
+            // Image awtImage = JasperPrintManager.printPageToImage(jasperPrint, 0, 2.0f);
 
-            BufferedImage bufferedImage = new BufferedImage(
-                    awtImage.getWidth(null),
-                    awtImage.getHeight(null),
-                    BufferedImage.TYPE_INT_ARGB);
+            // BufferedImage bufferedImage = new BufferedImage(
+            //         awtImage.getWidth(null),
+            //         awtImage.getHeight(null),
+            //         BufferedImage.TYPE_INT_ARGB);
 
-            Graphics2D g2d = bufferedImage.createGraphics();
-            g2d.drawImage(awtImage, 0, 0, null);
-            g2d.dispose();
+            // Graphics2D g2d = bufferedImage.createGraphics();
+            // g2d.drawImage(awtImage, 0, 0, null);
+            // g2d.dispose();
 
             // Now write to ByteArrayOutputStream
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            ImageIO.write(bufferedImage, "png", baos);
+            // ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            // ImageIO.write(bufferedImage, "png", baos);
 
+            // return ResponseEntity.ok()
+            //         .contentType(MediaType.IMAGE_PNG)
+            //         .body(baos.toByteArray());
+
+            byte[] pdfBytes = JasperExportManager.exportReportToPdf(jasperPrint);
+
+            // Return as HTTP response
             return ResponseEntity.ok()
-                    .contentType(MediaType.IMAGE_PNG)
-                    .body(baos.toByteArray());
+                    .contentType(MediaType.APPLICATION_PDF)
+                    .body(pdfBytes);
 
         } catch (Exception e) {
             logger.error("Error generating single contact card", e);
