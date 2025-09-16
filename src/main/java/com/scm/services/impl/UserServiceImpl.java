@@ -25,6 +25,9 @@ public class UserServiceImpl implements UserService {
     private UserRepo userRepo;
 
     @Autowired
+    private Helper helper;
+
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Autowired
@@ -47,11 +50,10 @@ public class UserServiceImpl implements UserService {
 
         logger.info(user.getProvider().toString());
 
-        
         String emailTOken = UUID.randomUUID().toString();
         user.setEmailToken(emailTOken);
-        User savedUser = userRepo.save(user); 
-        String emailLink = Helper.getLinkForEmailVerification(emailTOken);
+        User savedUser = userRepo.save(user);
+        String emailLink = helper.getLinkForEmailVerification(emailTOken);
         emailService.sendEmail(savedUser.getUsername(), "Verify Email: Smart Contact Manager", emailLink);
 
         return savedUser;
