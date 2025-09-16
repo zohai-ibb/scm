@@ -1,12 +1,14 @@
 package com.scm.helpers;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.oauth2.core.OAuth2AuthenticatedPrincipal;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 
 public class Helper {
+
+    @Value("${app.base-url}")
+    private String appBaseUrl;
 
     public static String getEmailOfLoggedInUser(Authentication authentication) {
 
@@ -43,11 +45,16 @@ public class Helper {
 
     }
 
-    public static String getLinkForEmailVerification(String emailToken){
+    // public static String getLinkForEmailVerification(String emailToken){
 
-        String link = "http://localhost:8081/auth/verify-email?token="+ emailToken;
+    //     String link = "http://localhost:8081/auth/verify-email?token="+ emailToken;
 
-        return link;
+    //     return link;
+    // }
+
+    public String getLinkForEmailVerification(String emailToken) {
+        return appBaseUrl + "/auth/verify-email?token=" + emailToken;
     }
+
 
 }
