@@ -37,5 +37,3 @@ build/
 # Ignore secrets
 .env
 
-# Ignore properties file with secrets
-src/main/resources/application.properties
